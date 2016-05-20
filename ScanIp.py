@@ -65,6 +65,10 @@ def mainMenu():
         select = raw_input("Select an option:")
         if select == "1":
             option();
+        elif select == "2":
+            if(optionSet[0] == True):
+                if platform == "MongoDB":
+                    test = 1
 
 
 def option():
@@ -116,6 +120,58 @@ def option():
         print "7-Set shell listener port (Current: " + str(myPort) + ")"
         print "x-Back to main menu"
         select = raw_input("Set an option:")
+
+        if select == '1':
+            optionSet[0] = False
+            while optionSet[0] == False:
+                notDNS = True
+                goodDigits = True
+                victim = raw_input("Enter host or IP/DNS name:")
+                octets = victim.split(".")
+                if len(octets) != 4:
+                    optionSet[0] = True
+                    notDNS = False
+                else:
+                    for item in octets:
+                        try:
+                            if int(item)<0 or int(item)>255:
+                                print "Bad octets in IP address."
+                                goodDigits = False
+                        except:
+                            notDNS = False
+                if goodDigits == True or notDNS == False:
+                    print "\nTarget set to:" + victim + "\n"
+                    optionSet[0] = True
+        elif select == '6':
+            optionSet[4] = False
+            while optionSet[4] == False:
+                goodLen = False
+                goodDigits = True
+                myIP = raw_input("Enter host IP for my "+ platform +"/Shells:")
+                octets = myIP.split(".")
+                if len(octets) != 4:
+                    print "Invalid IP length."
+                else:
+                    goodLen = True
+                    for item in octets:
+                        try:
+                            if int(item)<0 or int(item)>255:
+                                print "Bad octets in IP address."
+                                goodDigits = False
+                        except:
+                            goodDigits = False
+                if goodDigits == True and goodLen == True:
+                    print "\nShell/DB listener set to "+ myIP +"\n"
+                    optionSet[4] = True
+
+
+
+
+
+
+
+
+
 
 
 
