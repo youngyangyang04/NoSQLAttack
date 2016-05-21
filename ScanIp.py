@@ -5,6 +5,7 @@ import sys
 
 import signal
 
+from mongo import netAttacks
 
 mainMe = 1
 def main():
@@ -68,7 +69,7 @@ def mainMenu():
         elif select == "2":
             if(optionSet[0] == True):
                 if platform == "MongoDB":
-                    test = 1
+                    netAttacks(victim,dbPort,myIP,myPort)
 
 
 def option():
@@ -163,6 +164,8 @@ def option():
                 if goodDigits == True and goodLen == True:
                     print "\nShell/DB listener set to "+ myIP +"\n"
                     optionSet[4] = True
+        elif select == 'x':
+            return
 
 
 
