@@ -39,17 +39,23 @@ def option():
         GlobalVar.set_myIP("Not Set")
     if GlobalVar.get_optionSet(5) == False:
         GlobalVar.set_myPort("Not Set")
+    if GlobalVar.get_verb(6) == False:
+        GlobalVar.set_verb("OFF")
+    if GlobalVar.get_optionSet(8) == False:
+        GlobalVar.set_https("OFF")
+        GlobalVar.set_optionSet(8, True)
     while optSelect:
         print "\n\n"
         print "Options"
         print "1-Set target host/IP (Current: " + str(GlobalVar.get_victim()) + ")"
         print "2-Set web app port (Current: " + str(GlobalVar.get_webPort()) + ")"
         print "3-Set App Path (Current: " + str(GlobalVar.get_url()) + ")"
-#        print "4-Toggle HTTPS (Current: " + str(https) + ")"
-        print "4-Set " + GlobalVar.get_platform() + " Port (Current : " + str(GlobalVar.get_dbPort()) + ")"
-        print "5-Set HTTP Request Method (GET/POST) (Current: " + GlobalVar.get_httpMethod() + ")"
-        print "6-Set my local " + GlobalVar.get_platform() + "/Shell IP (Current: " + str(GlobalVar.get_myIP()) + ")"
-        print "7-Set shell listener port (Current: " + str(GlobalVar.get_myPort()) + ")"
+        print "4-Toggle HTTPS (Current: " + str(GlobalVar.get_https()) + ")" # set http or https
+        print "5-Set " + GlobalVar.get_platform() + " Port (Current : " + str(GlobalVar.get_dbPort()) + ")"
+        print "6-Set HTTP Request Method (GET/POST) (Current: " + GlobalVar.get_httpMethod() + ")"
+        print "7-Set my local " + GlobalVar.get_platform() + "/Shell IP (Current: " + str(GlobalVar.get_myIP()) + ")"
+        print "8-Set shell listener port (Current: " + str(GlobalVar.get_myPort()) + ")"
+        print "9-Toggle Verbose Mode: (Current: " + str(GlobalVar.get_verb()) + ")" # more detail infor while attacking
         print "x-Back to main menu"
         select = raw_input("Set an option:")
 
@@ -77,7 +83,7 @@ def option():
                     GlobalVar.set_victim(victim)
                     GlobalVar.set_optionSet(0,True)
 
-        elif select == '6':
+        elif select == '7':
             GlobalVar.set_optionSet(4,False)
             while GlobalVar.get_optionSet(4) == False:
                 goodLen = False
@@ -99,8 +105,18 @@ def option():
                     print "\nShell/DB listener set to "+ myIP +"\n"
                     GlobalVar.set_myIP(myIP)
                     GlobalVar.set_optionSet(4,True)
+
+        elif select == "9":
+            if verb == "OFF":
+                print "Verbose output enabled."
+                verb = "ON"
+                GlobalVar.set_optionSet(6,True)
+
+            elif verb == "ON":
+                print "Verbose output disabled."
+                verb = "OFF"
+                GlobalVar.set_optionSet(6, True)
         elif select == 'x':
             return
-
 
 

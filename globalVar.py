@@ -1,18 +1,20 @@
 class GlobalVar:
     optionSet = [False] * 9
-    yes_tag = ['y', 'Y']
+    yes_tag = ['y', 'Y'] # easy for users to choose "y" or "Y"
     no_tag = ['n', 'N']
-    victim = "not set"
-    webPort = "not set"
-    url = "not set"
-    httpMethod= "not set"
-    platform = "not set"
-    https = "not set"
-    myIP = "not set"
-    myPort = "not set"
-    verb = "not set"
-    scanNeedCreds = "not set"
+    victim = "Not Set" # target IP
+    webPort = "Not Set"
+    url = "Not Set"
+    httpMethod= "Not Set"
+    platform = "Not Set"
+    https = "Not Set" # use http or https for attacking URL
+    myIP = "Not Set" # local IP
+    myPort = "Not Set" # local port
+    verb = "Not Set" # verbose mode mean user can get more detail info while attacking
+    scanNeedCreds = "Not Set"
     dbPort = 27017
+
+
 def set_optionSet(i,value):
     GlobalVar.optionSet[i]=value
 def get_optionSet(i):
@@ -63,7 +65,14 @@ def set_dbPort(value):
 def get_dbPort():
     return GlobalVar.dbPort
 
+def set_https(value):
+    GlobalVar.https = value
+def get_https():
+    return GlobalVar.https;
 
-https = "not set"
-verb = "not set"
+def set_verb(value):
+    GlobalVar.verb = value
+def get_verb():
+    return GlobalVar.verb
+
 scanNeedCreds = "not set"
