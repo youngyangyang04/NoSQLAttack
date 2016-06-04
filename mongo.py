@@ -11,6 +11,7 @@ def netAttacks(target, dbPort, myIP, myPort):
     mongoOpen = False
     mgtSelect = True
     print "Checking to see if crendentials are need"
+
     needCreds = mongoScan(target,dbPort)
     if needCreds[0]==0:
         conn = pymongo.MongoClient(target,dbPort)
