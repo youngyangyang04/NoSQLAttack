@@ -8,7 +8,7 @@ def getApps():#define the Attack method
     print "====================="
     #verify app is working
     print "checking to see if site at"+ str(GlobalVar.get_victim()) + ":" + str(GlobalVar.get_webPort()) + str(GlobalVar.get_url()) + " is up..."
-
+    appUp = False #make flag of login successful
     if(GlobalVar.get_https() == "OFF"):
         appURL = "http://" + str(GlobalVar.get_victim()) + ":" + str(GlobalVar.get_webPort()) + str(GlobalVar.get_url())
     else:

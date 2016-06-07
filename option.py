@@ -39,7 +39,7 @@ def option():
         GlobalVar.set_myIP("Not Set")
     if GlobalVar.get_optionSet(5) == False:
         GlobalVar.set_myPort("Not Set")
-    if GlobalVar.get_verb(6) == False:
+    if GlobalVar.get_optionSet(6) == False:
         GlobalVar.set_verb("OFF")
     if GlobalVar.get_optionSet(8) == False:
         GlobalVar.set_https("OFF")
@@ -82,6 +82,11 @@ def option():
                     print "\nTarget set to:" + victim + "\n"
                     GlobalVar.set_victim(victim)
                     GlobalVar.set_optionSet(0,True)
+        elif select == '3':
+            url = raw_input("Enter URL path(Press enter for no URL):")
+            print "\nHTTP port set to " + str(GlobalVar.get_webPort()) + "\n"
+            GlobalVar.set_url(url)
+
 
         elif select == '7':
             GlobalVar.set_optionSet(4,False)

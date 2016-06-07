@@ -3,7 +3,7 @@ class GlobalVar:
     yes_tag = ['y', 'Y'] # easy for users to choose "y" or "Y"
     no_tag = ['n', 'N']
     victim = "Not Set" # target IP
-    webPort = "Not Set"
+    webPort = 80
     url = "Not Set"
     httpMethod= "Not Set"
     platform = "Not Set"
