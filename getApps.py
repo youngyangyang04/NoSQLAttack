@@ -3,6 +3,7 @@ import urllib2
 import time
 
 import globalVar as GlobalVar
+import tool as getRandString
 def getApps():#define the Attack method
     print "Web App Attacks (GET)"
     print "====================="
@@ -40,4 +41,7 @@ def getApps():#define the Attack method
         print e
         print "Looks like the server didn't respond.  Check your options."
 
-
+    if(appUp == True):
+        injectSize = raw_input("Baseline test-Enter random string size: ")
+        injectString = getRandString(int(injectSize))
+        print "Using " + injectString + " for injection testing.\n"
