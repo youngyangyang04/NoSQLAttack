@@ -85,6 +85,7 @@ def option():
         elif select == '3':
             url = raw_input("Enter URL path(Press enter for no URL):")
             print "\nHTTP port set to " + str(GlobalVar.get_webPort()) + "\n"
+            GlobalVar.set_optionSet(2,True)
             GlobalVar.set_url(url)
 
 
@@ -112,14 +113,14 @@ def option():
                     GlobalVar.set_optionSet(4,True)
 
         elif select == "9":
-            if verb == "OFF":
+            if GlobalVar.get_verb() == "OFF":
                 print "Verbose output enabled."
-                verb = "ON"
+                GlobalVar.set_verb("ON")
                 GlobalVar.set_optionSet(6,True)
 
-            elif verb == "ON":
+            elif GlobalVar.get_verb() == "ON":
                 print "Verbose output disabled."
-                verb = "OFF"
+                GlobalVar.set_verb("OFF")
                 GlobalVar.set_optionSet(6, True)
         elif select == 'x':
             return

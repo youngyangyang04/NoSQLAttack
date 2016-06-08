@@ -73,7 +73,7 @@ def mainMenu():
                     netAttacks( GlobalVar.get_victim(),GlobalVar.get_dbPort(),GlobalVar.get_myIP(),GlobalVar.get_myPort())
         elif select == "3":
             if(GlobalVar.get_optionSet(0) == True) and (GlobalVar.get_optionSet(2) == True):
-                if httpMethod == "GET":
+                if GlobalVar.get_httpMethod() == "GET":
                     getApps()
 
 
