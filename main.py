@@ -8,7 +8,7 @@ import globalVar as GlobalVar
 from mongo import netAttacks
 import option
 from getApps import getApps
-from scanIp import scanMongoDBIP
+from scanIP import scanMongoDBIP
 mainMe = 1
 def main():
     print "asdf"
