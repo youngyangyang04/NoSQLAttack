@@ -8,6 +8,7 @@ import globalVar as GlobalVar
 from mongo import netAttacks
 import option
 from getApps import getApps
+from scanIp import scanMongoDBIP
 mainMe = 1
 def main():
     print "asdf"
@@ -57,6 +58,7 @@ def mainMenu():
         print "NoSQLAttack"
         print "sunxiuyang04@gmail.com"
         print "\n"
+        print "0-Scan IP"
         print "1-Set options"
         print "2-NoSQL DB Access Attacks"
         print "3-NoSQL Web App attacks"
@@ -65,6 +67,8 @@ def mainMenu():
         print "x-Exit"
 
         select = raw_input("Select an option:")
+        if select == "0":
+            scanMongoDBIP()
         if select == "1":
             option.option();
         elif select == "2":

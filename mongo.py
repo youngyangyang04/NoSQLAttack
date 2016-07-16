@@ -68,7 +68,7 @@ def stealDBs(myDBIP,victim,mongoConn):
         print "Can't get a list of databases to steal.  The provided credentials may not have rights."
         return
     for dbname in dbList:
-        print str(menuItem) + "_" + dbname
+        print "(" + str(menuItem) + ")" + dbname
         menuItem += 1
     while dbLoot:
         dbLoot = int(raw_input("Select a database to steal:"))
