@@ -14,3 +14,42 @@ Varies based on features used:
 * Python with PyMongo
 * httplib2
 * install MongoDB in laptop
+
+#Building
+On Debian/Ubuntu, it goes something like this:
+```bash
+cd NoSQLAttack
+python setup.py install
+```
+#Usage
+After building, you can run NoSQLAttack like this:
+```bash
+NoSQLAttack
+```
+Upon starting NoSQLAttack you are presented with with the main menu:
+```bash
+====================================================
+        _   _       _____  _____ _                      
+       | \ | |     /  ___||  _  | |                     
+       |  \| | ___ \ `--. | | | | |                   
+       | . ` |/ _ \ `--. \| | | | |                    
+       | |\  | (_) /\__/ /\ \/' / |____          
+       \_| \_/\___/\____/  \_/\_\_____/                  
+                                        _          
+    /\      _      _                   | |  _        
+   /  \   _| |_  _| |    _____    ___  | | / /       
+  / /\ \ |_   _||_   _| / __  \  / __| | |/ /        
+ / /--\ \  | |_   | |_  | |_| | | |__  | |\ \       
+/ / -- \ \ \___\  \___\ \______\ \___| | | \_\      
+================================================    
+NoSQLAttack-v0.2
+sunxiuyang04@gmail.com
+
+
+0-Scan attacked IP
+1-Set options
+2-NoSQL DB Access Attacks
+3-NoSQL Web App attacks
+x-Exit  
+```
+
