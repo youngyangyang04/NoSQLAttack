@@ -47,35 +47,41 @@ def mainMenu():
     mmSelect = True
     while mmSelect:
         os.system('clear')
-        print "===================================================="
-        print " _   _       _____  _____ _     "
-        print "| \ | |     /  ___||  _  | |   "
-        print "|  \| | ___ \ `--. | | | | |   "
-        print "| . ` |/ _ \ `--. \| | | | |     "
-        print "| |\  | (_) /\__/ /\ \/' / |____"
-        print "\_| \_/\___/\____/  \_/\_\_____/"
-        print "===================================================="
-        print "NoSQLAttack"
+        print "==============================================="
+        print "        _   _       _____  _____ _                      "
+        print "       | \ | |     /  ___||  _  | |                     "
+        print "       |  \| | ___ \ `--. | | | | |                   "
+        print "       | . ` |/ _ \ `--. \| | | | |                    "
+        print "       | |\  | (_) /\__/ /\ \/' / |____          "
+        print "       \_| \_/\___/\____/  \_/\_\_____/                  "
+        print "                                        _          "
+        print "    /\      _      _                   | |  _        "
+        print "   /  \   _| |_  _| |_   _____    ___  | | / /       "
+        print "  / /\ \ |_   _||_   _| / __  \  / __| | |/ /        "
+        print " / /--\ \  | |    | |_  | |_| |  ||__  | |\ \       "
+        print "/ / -- \ \ \___\  \___\ \______\ \___| | | \_\      "
+        print "===============================================    "
+        print "NoSQLAttack-v0.2"
         print "sunxiuyang04@gmail.com"
         print "\n"
-        print "0-Scan IP"
-        print "1-Set options"
-        print "2-NoSQL DB Access Attacks"
-        print "3-NoSQL Web App attacks"
+        print "1-Scan attacked IP"
+        print "2-Set options"
+        print "3-NoSQL DB Access Attacks"
+        print "4-NoSQL Web App attacks"
 #        print "4-Scan for Anonymous " + platform + " Access"
 #        print "5-Change Platform (Current: " + platform + ")"
         print "x-Exit"
 
         select = raw_input("Select an option:")
-        if select == "0":
-            scanMongoDBIP()
         if select == "1":
+            scanMongoDBIP()
+        if select == "2":
             option.option();
-        elif select == "2":
+        elif select == "3":
             if(GlobalVar.get_optionSet(0) == True and GlobalVar.get_optionSet(4) == True):
                 if platform == "MongoDB":
                     netAttacks( GlobalVar.get_victim(),GlobalVar.get_dbPort(),GlobalVar.get_myIP(),GlobalVar.get_myPort())
-        elif select == "3":
+        elif select == "4":
             if(GlobalVar.get_optionSet(0) == True) and (GlobalVar.get_optionSet(2) == True):
                 if GlobalVar.get_httpMethod() == "GET":
                     getApps()
