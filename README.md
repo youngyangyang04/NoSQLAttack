@@ -28,7 +28,7 @@ NoSQLAttack
 ```
 Upon starting NoSQLAttack you are presented with with the main menu:
 ```bash
-====================================================
+================================================
         _   _       _____  _____ _                      
        | \ | |     /  ___||  _  | |                     
        |  \| | ___ \ `--. | | | | |                   
