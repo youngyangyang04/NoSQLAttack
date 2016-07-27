@@ -42,6 +42,18 @@ def getApps():#define the Attack method
         print "Looks like the server didn't respond.  Check your options."
 
     if(appUp == True):
-        injectSize = raw_input("Baseline test-Enter random string size: ")
-        injectString = getRandString(int(injectSize))
+        injectString = raw_input("Enter random parameter to inject: ")
         print "Using " + injectString + " for injection testing.\n"
+
+    if "?" not in appURL:
+        print "No URI parameters provided for GET request...Check your options.\n"
+        raw_input("Press enter to continue...")
+        return ()
+    split_uri = appURL.split("?")
+    if split_uri[1] == '':
+        raw_input(
+            "No parameters in uri.  Check options settings.  Press enter to return to main menu...")
+        return ()
+#    randomUri = buildUri(appURL, injectString)  891
+
+#def buildURL(origURL,randValue)
