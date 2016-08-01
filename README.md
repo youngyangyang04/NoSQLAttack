@@ -46,10 +46,10 @@ NoSQLAttack-v0.2
 sunxiuyang04@gmail.com
 
 
-0-Scan attacked IP
-1-Set options
-2-NoSQL DB Access Attacks
-3-NoSQL Web App attacks
-x-Exit  
+1-Scan attacked IP
+2-Configurate parameters
+3-MongoDB Access Attacks
+4-Injection Attacks
+x-Exit
 ```
 
