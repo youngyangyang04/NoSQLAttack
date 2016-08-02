@@ -3,6 +3,7 @@ import urllib2
 import time
 
 import globalVar as GlobalVar
+from buildAttackUri import buildAttackUri
 import tool as getRandString
 def getApps():#define the Attack method
     print "Web App Attacks (GET)"
@@ -54,6 +55,10 @@ def getApps():#define the Attack method
         raw_input(
             "No parameters in uri.  Check options settings.  Press enter to return to main menu...")
         return ()
-#    randomUri = buildUri(appURL, injectString)  891
+    uriArray = buildAttackUri(appURL, injectString)
+    for item in uriArray:
+        print item
 
-#def buildURL(origURL,randValue)
+
+
+
