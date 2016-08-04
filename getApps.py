@@ -55,9 +55,55 @@ def getApps():#define the Attack method
         raw_input(
             "No parameters in uri.  Check options settings.  Press enter to return to main menu...")
         return ()
-    uriArray = buildAttackUri(appURL, injectString)
+
+    buildAttackSet = buildAttackUri(appURL, injectString)
+    uriArray = buildAttackSet[0]
+    attackDescriptionSet = buildAttackSet[1]
     for item in uriArray:
         print item
+    for item in attackDescriptionSet:
+        print item
+
+    #This randomUri is same with URI which user input in option except parameter
+    randomUri = uriArray[0]
+
+    print "URI :" + randomUri
+    req = urllib2.Request(randomUri, None, requestHeaders)
+    if GlobalVar.get_verb() == "ON":
+        print "Checking random injected parameter HTTP response size using " + randomUri + "...\n"
+    else:
+        print "Sending random parameter value..."
+    randLength = int(len(urllib2.urlopen(req).read()))
+    print "Got response length of " + str(randLength) + "."
+    randNormDelta = abs(normLength - randLength)
+
+    if randNormDelta == 0:
+        print "No change in response size injecting a random parameter..\n"
+    else:
+        print "Random value variance: " + str(randNormDelta) + "\n"
+
+    attackEffectiveSum = attackDescriptionSet[0]
+
+
+    print "req:" + urllib2.urlopen(req).read()
+
+#    print "requestHeaders" + requestHeaders
+
+    for index in range(1,attackEffectiveSum):
+        if GlobalVar.get_verb() == "ON":
+            print attackDescriptionSet[index]
+        req = urllib2.Request(uriArray[index], None, requestHeaders)
+
+        injectionLen = int(len(urllib2.urlopen(req).read()))
+#        checkResult(randLength, injectionLen, index)
+        if randLength - injectionLen == 0:
+            print "Injection failed."
+#    for injectionURI in uriArray:
+#        print "URI: " + injectionURI
+#        req = urllib2.Request(injectionURI, None, requestHeaders)
+#        randLength = int(len(urllib2.urlopen(req).read()))
+#
+#         print "Got response length of " + str(randLength) + "."
 
 
 
