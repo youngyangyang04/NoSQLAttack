@@ -6,7 +6,7 @@ with open("README.md") as f:
 			name = "NoSQLAttack",
 			version = "0.2",
 			packages = find_packages(),
-			scripts = ['getApps.py', 'globalVar.py', 'main.py','mongo.py','option.py','scanIP.py','tool.py'],
+			scripts = ['getApps.py', 'globalVar.py', 'main.py','mongo.py','option.py','scanIP.py','buildAttackUri.py'],
 
 			entry_points = {
 				"console_scripts": [
