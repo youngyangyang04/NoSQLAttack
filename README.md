@@ -1,3 +1,4 @@
+#[中文说明](https://github.com/youngyangyang04/NoSQLAttack/blob/master/docs/README-zh.md)
 #NoSQLAttack
 #Introduction
 NoSQLAttack is an open source Python tool to automate exploit MongoDB server IP around the world and disclose the database data by MongoDB default configuration weaknesses and injection attacks. 
