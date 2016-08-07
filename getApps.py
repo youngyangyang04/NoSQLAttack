@@ -93,17 +93,88 @@ def getApps():#define the Attack method
         if GlobalVar.get_verb() == "ON":
             print attackDescriptionSet[index]
         req = urllib2.Request(uriArray[index], None, requestHeaders)
+        errorCheck = errorTest(str(urllib2.urlopen(req).read()), index, uriArray)
 
-        injectionLen = int(len(urllib2.urlopen(req).read()))
+        if errorCheck == False:
+            injLen = int(len(urllib2.urlopen(req).read()))
+            checkResult(randLength, injLen, index, uriArray)
+    print "\n"
+    print "Vulnerable URLs:"
+    print "\n".join(GlobalVar.get_vulnAddrs())
+    print "\n"
+    print "Possibly vulnerable URLs:"
+    print"\n".join(GlobalVar.get_possAddrs())
+    print "\n"
+    print "Timing based attacks:"
+
+
 #        checkResult(randLength, injectionLen, index)
-        if randLength - injectionLen == 0:
-            print "Injection failed."
+
 #    for injectionURI in uriArray:
 #        print "URI: " + injectionURI
 #        req = urllib2.Request(injectionURI, None, requestHeaders)
 #        randLength = int(len(urllib2.urlopen(req).read()))
 #
 #         print "Got response length of " + str(randLength) + "."
+def errorTest(errorText, index, uriArray):
+
+    if errorText.find('ReferenceError') != -1 or errorText.find('SyntaxError') != -1 or errorText.find('ILLEGAL') != -1:
+        print "Injection returned a MongoDB Error.  Injection may be possible."
+        if GlobalVar.get_httpMethod() == "GET":
+            GlobalVar.set_possAddrs(uriArray[index])
+            return True
+        else:
+            post = 0
+            #post
+    else:
+        return False
+def checkResult(baseSize, respSize, index,uriArray):
+    delta = abs(respSize - baseSize)
+    if (delta >= 100) and (respSize != 0):
+        if GlobalVar.get_verb() == "ON":
+            print "Response varied " + str(delta) + " bytes from random parameter value! Injection works!"
+        else:
+            print "Successful injection!"
+
+        if GlobalVar.get_httpMethod() == "GET":
+            GlobalVar.get_vulnAddrs().append(uriArray[index])
+        else:
+           post = 0
+            #post
+        return
+
+    elif (delta > 0) and (delta < 100) and (respSize != 0):
+        if GlobalVar.get_verb() == "ON":
+            print "Response variance was only " + str(
+                delta) + " bytes. Injection might have worked but difference is too small to be certain. "
+        else:
+            print "Possible injection."
+
+        if GlobalVar.get_httpMethod() == "GET":
+            GlobalVar.get_possAddrs().append(uriArray[index])
+        else:
+            post = 0
+            # post
+        return
+
+    elif (delta == 0):
+        if GlobalVar.get_verb() == "ON":
+            print "Random string response size and not equals injection were the same. Injection did not work."
+        else:
+            print "Injection failed."
+        return
+
+    else:
+        if GlobalVar.get_verb() == "ON":
+            print "Injected response was smaller than random response.  Injection may have worked but requires verification."
+        else:
+            print "Possible injection."
+        if GlobalVar.get_httpMethod() == "GET":
+            GlobalVar.get_possAddrs.append(uriArray[index])
+        else:
+            post = 0
+            # post
+        return
 
 
 

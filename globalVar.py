@@ -13,7 +13,17 @@ class GlobalVar:
     verb = "Not Set" # verbose mode mean user can get more detail info while attacking
     scanNeedCreds = "Not Set"
     dbPort = 27017
+    vulnAddrs = []
+    possAddrs = []
+def set_vulnAddrs(value):
+    GlobalVar.vulnAddrs.append(value)
+def get_vulnAddrs():
+    return GlobalVar.vulnAddrs
 
+def set_possAddrs(value):
+    GlobalVar.possAddrs.append(value)
+def get_possAddrs():
+    return GlobalVar.possAddrs
 
 def set_optionSet(i,value):
     GlobalVar.optionSet[i]=value
