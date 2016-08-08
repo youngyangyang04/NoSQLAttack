@@ -1,5 +1,5 @@
 import pymongo
-
+from hashlib import md5
 global yes_tag
 global no_tag
 yes_tag = ['y','Y']
@@ -35,17 +35,14 @@ def netAttacks(target, dbPort, myIP, myPort):
         while mgtSelect:
             print "\n"
             print "1-Get Server Version and Platform"
-            print "2-Enumerate Databases/Collections/Users"
-            print "3-Check for GridFS"
-            print "4-Clone a Database"
-            print "5-Launch Metasploit Exploit for Mongo < 2.2.4"
-            print "6-Return to Main Menu"
+            print "2-Clone a Database"
+            print "3-Return to Main Menu"
             attack = raw_input("Select an attack: ")
 
             if attack == '1':
                 print "\n"
                 getPlatInfo(conn)
-            if attack == '4':
+            if attack == '2':
                 print "\n"
                 if myIP == "NOT SET":
                     print "Target database not set"
@@ -54,7 +51,7 @@ def netAttacks(target, dbPort, myIP, myPort):
 
 
 
-            elif attack == '6':
+            elif attack == '3':
                 return
 
 
@@ -96,7 +93,11 @@ def stealDBs(myDBIP,victim,mongoConn):
             return
     except Exception, e:
         print str(e)
-        if str(e).find('text search not enabled'):
+        if str(e).find('Connection refused'):
+            raw_input(
+                "Make sure that mongoDB has been installed or that mongoDB is opened on this computer.  Press enter to return...")
+            return
+        elif str(e).find('text search not enabled'):
             raw_input(
                 "Database copied, but text indexing was not enabled on the target.  Indexes not moved.  Press enter to return...")
             return
@@ -133,4 +134,3 @@ def mongoScan(ip,port):
                 return[2,None]
     except:
         return [3,None]
-

