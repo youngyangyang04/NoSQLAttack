@@ -4,7 +4,6 @@ import time
 
 import globalVar as GlobalVar
 from buildAttackUri import buildAttackUri
-import tool as getRandString
 def getApps():#define the Attack method
     print "Web App Attacks (GET)"
     print "====================="
