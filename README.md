@@ -7,14 +7,17 @@ It is base on [NoSQLMap](http://www.nosqlmap.net/index.html), tcstool's popular 
 
 #Requirements
 On a Debian or Red Hat based system, NoSQLAttack's dependencies already be writen in setup.py.
-And I develop this project on Pycharm COMMUNITY 2016.1 with python 2.7.10, so you can check out this project by git which integrated in PyCharm. 
+This project is built on Pycharm COMMUNITY 2016.1 with python 2.7.10. 
 
 Varies based on features used:
-* Shodan
-* Metasploit Framework
-* Python with PyMongo
-* httplib2
-* install MongoDB in laptop
+* Shodan-1.5.3
+* httplib2-0.9
+* Python-2.7
+* pymongo-2.7.2
+* requests-2.5.0
+* ipcalc-1.1.3
+* MongoDB
+
 
 #Building
 On Debian/Ubuntu, it goes something like this:
@@ -22,6 +25,10 @@ On Debian/Ubuntu, it goes something like this:
 cd NoSQLAttack
 python setup.py install
 ```
+#Tips
+* If after entering "python setup.py install", terminal show error information "No module named setuptools", just install setuptools. On Ubuntu, "sudo apt-get install python-setuptools", this command is useful
+* Install MongoDB on computer.
+
 #Usage
 After building, you can run NoSQLAttack like this:
 ```bash
