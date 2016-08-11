@@ -141,14 +141,3 @@ Select a database to steal:6
 Does this Database require credentials.(y/n)?n
 Database cloned. Copy another (y/n)?
 ```
-Login mongoDB and show dbs to select a collection
-
-![image](https://github.com/youngyangyang04/NoSQLAttack/blob/master/images/scanIP7.png)
-
-Show collection
-
-![image](https://github.com/youngyangyang04/NoSQLAttack/blob/master/images/scanIP8.png)
-
-Show information
-
-![image](https://github.com/youngyangyang04/NoSQLAttack/blob/master/images/scanIP9.png)
