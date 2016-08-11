@@ -11,7 +11,6 @@ from getApps import getApps
 from scanIP import scanMongoDBIP
 mainMe = 1
 def main():
-    print "asdf"
 #    signal.signal(signal.SIGINT, signal_handler)
     global optionSet
     #Set a list so we can track whether options are set or not to avoid resetting them in subsequent cals to the options menu.
@@ -85,6 +84,10 @@ def mainMenu():
             if(GlobalVar.get_optionSet(0) == True) and (GlobalVar.get_optionSet(2) == True):
                 if GlobalVar.get_httpMethod() == "GET":
                     getApps()
+        elif select == "x":
+            sys.exit()
+        else:
+            raw_input("Invalid selection.  Press enter to continue.")
 
 
 if __name__ == "__main__":

@@ -75,7 +75,7 @@ def buildAttackUri(origUri, randValue):
     attackDescriptionSet[5] = "Testing Mongo <2.4 $where Javascript integer escape attack for one record...\n" + "Injecting " + uriArray[5]
     attackDescriptionSet[6] = "Testing Mongo this not equals string escape attack for all records...\n" + "Injecting " + uriArray[6]
     attackDescriptionSet[7] = "Testing Mongo this not equals integer escape attack for all records...\n" + "Injecting " + uriArray[7]
-    attackDescriptionSet[8] = "Testing  PHP/ExpressJS > undefined attack for all records...\n" + "Injecting " + uriArray[8]
+    attackDescriptionSet[8] = "Testing PHP/ExpressJS > undefined attack for all records...\n" + "Injecting " + uriArray[8]
     buildAttackSet = [[],[]]
     buildAttackSet[0] = uriArray
     buildAttackSet[1] = attackDescriptionSet;
