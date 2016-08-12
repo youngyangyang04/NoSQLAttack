@@ -3,7 +3,7 @@
 #Introduction
 NoSQLAttack is an open source Python tool to automate exploit MongoDB server IP on the internet and disclose the database data by MongoDB default configuration weaknesses and injection attacks. 
 
-It is base on [NoSQLMap](http://www.nosqlmap.net/index.html), tcstool's popular NoSQL injection tool and [shodan](https://www.shodan.io/), first search engine for Internet-connected devices. Some attack tests are based on and extensions of paper [Diglossia: Detecting Code Injection Attacks with Precision and Efficiency](http://www.cs.cornell.edu/~shmat/shmat_ccs13.pdf) and [No SQL, No Injection?](https://www.research.ibm.com/haifa/Workshops/security2015/present/Aviv_NoSQL-NoInjection.pdf).Presently the tool's exploits focus on MongoDB.
+It is base on [NoSQLMap](http://www.nosqlmap.net/index.html), tcstool's popular NoSQL injection tool and [shodan](https://www.shodan.io/), first search engine for Internet-connected devices. Some attack tests are based on and extensions of paper [Diglossia: Detecting Code Injection Attacks with Precision and Efficiency](http://www.cs.cornell.edu/~shmat/shmat_ccs13.pdf) , [No SQL, No Injection?](https://www.research.ibm.com/haifa/Workshops/security2015/present/Aviv_NoSQL-NoInjection.pdf) and [Several thousand MongoDBs without access control on the Internet](https://cispa.saarland/wp-content/uploads/2015/02/MongoDB_documentation.pdf).Presently the tool's exploits focus on MongoDB.
 
 #Requirements
 On a Debian or Red Hat based system, NoSQLAttack's dependencies already be writen in setup.py.
