@@ -6,6 +6,8 @@ NoSQLAttack 是一个用python编写的开源的攻击工具，用来暴露网�
 现在这个工具主要针对mongoDB。
 
 NoSQL注入攻击测试系统[NoSQLInjectionAttackDemo](https://github.com/youngyangyang04/NoSQLInjectionAttackDemo)，这里面有两个系统用来测试注入攻击。
+#背景介绍
+在NoSQL注入攻击中有PHP数组注入，js注入和mongo shell拼接注入等多种方法可以攻击mongoDB，并且现在有成千上万的mongoDB暴露在互联网上，只要知道目标mongoDB的ip和端口号就可以把裸露的mongoDB中的数据都下载下来。
 #运行环境
 项目运行在linux系统上，NoSQLAttack的依赖包已经写在setup.py文件里，并且已经在ubantu和MAC OX上都测试了，只需要执行这个脚本就可以自动配置好安装环境
 开发这个项目使用时使用的是Pycharm COMMUNITY 2016.1，python的版本为2.7.10，使用者需要在本地电脑安装[mongoDB](http://jingyan.baidu.com/article/fd8044faf4f3a95030137a79.html)。
