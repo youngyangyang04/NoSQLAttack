@@ -1,9 +1,14 @@
 #[中文说明](https://github.com/youngyangyang04/NoSQLAttack/blob/master/docs/README-zh.md)
 #NoSQLAttack
 #Introduction
-NoSQLAttack is an open source Python tool to automate expose MongoDB server IP on the internet and disclose the database data by MongoDB default configuration weaknesses and injection attacks. 
+NoSQLAttack is an open source Python tool to automate expose MongoDB server IP on the internet and disclose the database data by MongoDB default configuration weaknesses and injection attacks. Presently, this project focuses on MongoDB.
 
-It is base on [NoSQLMap](http://www.nosqlmap.net/index.html), tcstool's popular NoSQL injection tool and [shodan](https://www.shodan.io/), first search engine for Internet-connected devices. Some attack tests are based on and extensions of paper [Diglossia: Detecting Code Injection Attacks with Precision and Efficiency](http://www.cs.cornell.edu/~shmat/shmat_ccs13.pdf) , [No SQL, No Injection?](https://www.research.ibm.com/haifa/Workshops/security2015/present/Aviv_NoSQL-NoInjection.pdf) and [Several thousand MongoDBs without access control on the Internet](https://cispa.saarland/wp-content/uploads/2015/02/MongoDB_documentation.pdf).Presently the tool's exploits focus on MongoDB.
+It is base on [NoSQLMap](http://www.nosqlmap.net/index.html), tcstool's popular NoSQL injection tool and [shodan](https://www.shodan.io/), first search engine for Internet-connected devices. 
+
+Some attack tests are based on and extensions of follow papers
+* [Diglossia: Detecting Code Injection Attacks with Precision and Efficiency](http://www.cs.cornell.edu/~shmat/shmat_ccs13.pdf)
+* [No SQL, No Injection?](https://www.research.ibm.com/haifa/Workshops/security2015/present/Aviv_NoSQL-NoInjection.pdf)
+* [Several thousand MongoDBs without access control on the Internet](https://cispa.saarland/wp-content/uploads/2015/02/MongoDB_documentation.pdf).
 
 There are two systems for testing NoSQL injection in this  project-[NoSQLInjectionAttackDemo](https://github.com/youngyangyang04/NoSQLInjectionAttackDemo).
 #Background
