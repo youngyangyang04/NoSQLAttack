@@ -37,7 +37,7 @@ python setup.py install
 ```
 #Tips
 * If after entering "python setup.py install", terminal show error information "No module named setuptools", just install setuptools. On Ubuntu, "sudo apt-get install python-setuptools", this command is useful
-* Install [MongoDB](https://docs.mongodb.com/manual/administration/install-on-linux/) on computer.
+* Install [MongoDB](https://docs.mongodb.com/manual/administration/install-on-linux/) for MongoDB default configuration attack.
 
 #Usage
 After building, you can run NoSQLAttack like this:
