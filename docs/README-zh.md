@@ -55,7 +55,7 @@ sunxiuyang04@gmail.com
 4-Injection Attacks
 x-Exit
 ```
-#系统演示
+#选项1扫描可攻击IP演示 
 ```bash
 ===============================================
         _   _       _____  _____ _                      
@@ -135,5 +135,132 @@ Select an attack: 3
 Select a database to steal:6
 Does this Database require credentials.(y/n)?n
 Database cloned. Copy another (y/n)?
-```
 
+```
+#选项2系统配置信息演示 
+这里以这个攻击地址为例(219.223.240.36/NoSQLInjectionAttackDemo/demo_2.html)，这里的IP：219.223.240.36 下部署了web服务器在我本地的电脑，所以外网是访问不了的，这个用于测试的web站点的源码在这个项目里[NoSQLInjectionAttackDemo](https://github.com/youngyangyang04/NoSQLInjectionAttackDemo). 使用者可以自己搭建一个web服务器然后将这个项目[NoSQLInjectionAttackDemo](https://github.com/youngyangyang04/NoSQLInjectionAttackDemo)的代码放上去就可以运行了，然后将这个IP219.223.240.36换成搭建好的web服务器的IP。
+```bash
+===============================================
+        _   _       _____  _____ _                      
+       | \ | |     /  ___||  _  | |                     
+       |  \| | ___ \ `--. | | | | |                   
+       | . ` |/ _ \ `--. \| | | | |                    
+       | |\  | (_) /\__/ /\ \/' / |____          
+       \_| \_/\___/\____/  \_/\_\_____/                  
+                                        _          
+    /\      _      _                   | |  _        
+   /  \   _| |_  _| |_   _____    ___  | | / /       
+  / /\ \ |_   _||_   _| / __  \  / __| | |/ /        
+ / /--\ \  | |    | |_  | |_| |  ||__  | |\ \       
+/ / -- \ \ \___\  \___\ \______\ \___| | | \_\      
+===============================================    
+NoSQLAttack-v0.2
+sunxiuyang04@gmail.com
+
+
+1-Scan attacked IP
+2-Configurate parameters
+3-MongoDB Access Attacks
+4-Injection Attacks
+x-Exit
+Select an option:2
+
+Options
+1-Set target host/IP (Current: Not Set)
+2-Set web app port (Current: 80)
+3-Set App Path (Current: Not Set)
+4-Toggle HTTPS (Current: OFF)
+5-Set Not Set Port (Current : 27017)
+6-Set HTTP Request Method (GET/POST) (Current: GET)
+7-Set my local Not Set/Shell IP (Current: Not Set)
+8-Set shell listener port (Current: Not Set)
+9-Toggle Verbose Mode: (Current: OFF)
+x-Back to main menu
+Set an option:1
+Enter host or IP/DNS name:219.223.240.36
+
+Target set to:219.223.240.36
+
+
+
+
+Options
+1-Set target host/IP (Current: 219.223.240.36)
+2-Set web app port (Current: 80)
+3-Set App Path (Current: Not Set)
+4-Toggle HTTPS (Current: OFF)
+5-Set Not Set Port (Current : 27017)
+6-Set HTTP Request Method (GET/POST) (Current: GET)
+7-Set my local Not Set/Shell IP (Current: Not Set)
+8-Set shell listener port (Current: Not Set)
+9-Toggle Verbose Mode: (Current: OFF)
+x-Back to main menu
+Set an option:3
+Enter URL path(Press enter for no URL):/NoSQLInjectionAttackDemo/login/demo_2.php?password=2
+
+HTTP port set to 80
+
+
+
+
+Options
+1-Set target host/IP (Current: 219.223.240.36)
+2-Set web app port (Current: 80)
+3-Set App Path (Current: /NoSQLInjectionAttackDemo/login/demo_2.php?password=2)
+4-Toggle HTTPS (Current: OFF)
+5-Set Not Set Port (Current : 27017)
+6-Set HTTP Request Method (GET/POST) (Current: GET)
+7-Set my local Not Set/Shell IP (Current: Not Set)
+8-Set shell listener port (Current: Not Set)
+9-Toggle Verbose Mode: (Current: OFF)
+x-Back to main menu
+Set an option:7
+Enter host IP for my Not Set/Shells:127.0.0.1
+
+Shell/DB listener set to 127.0.0.1
+
+
+
+
+Options
+1-Set target host/IP (Current: 219.223.240.36)
+2-Set web app port (Current: 80)
+3-Set App Path (Current: /NoSQLInjectionAttackDemo/login/demo_2.php?password=2)
+4-Toggle HTTPS (Current: OFF)
+5-Set Not Set Port (Current : 27017)
+6-Set HTTP Request Method (GET/POST) (Current: GET)
+7-Set my local Not Set/Shell IP (Current: 127.0.0.1)
+8-Set shell listener port (Current: Not Set)
+9-Toggle Verbose Mode: (Current: OFF)
+x-Back to main menu
+Set an option:x
+===============================================
+        _   _       _____  _____ _                      
+       | \ | |     /  ___||  _  | |                     
+       |  \| | ___ \ `--. | | | | |                   
+       | . ` |/ _ \ `--. \| | | | |                    
+       | |\  | (_) /\__/ /\ \/' / |____          
+       \_| \_/\___/\____/  \_/\_\_____/                  
+                                        _          
+    /\      _      _                   | |  _        
+   /  \   _| |_  _| |_   _____    ___  | | / /       
+  / /\ \ |_   _||_   _| / __  \  / __| | |/ /        
+ / /--\ \  | |    | |_  | |_| |  ||__  | |\ \       
+/ / -- \ \ \___\  \___\ \______\ \___| | | \_\      
+===============================================    
+NoSQLAttack-v0.2
+sunxiuyang04@gmail.com
+
+
+1-Scan attacked IP
+2-Configurate parameters
+3-MongoDB Access Attacks
+4-Injection Attacks
+x-Exit
+Select an option:4
+Web App Attacks (GET)
+=====================
+checking to see if site at219.223.240.36:80/NoSQLInjectionAttackDemo/login/demo_2.php?password=2 is up...
+
+
+```
