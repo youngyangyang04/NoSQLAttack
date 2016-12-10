@@ -58,10 +58,11 @@ def getApps():#define the Attack method
     buildAttackSet = buildAttackUri(appURL, injectString)
     uriArray = buildAttackSet[0]
     attackDescriptionSet = buildAttackSet[1]
-    for item in uriArray:
-        print item
-    for item in attackDescriptionSet:
-        print item
+    attackSum = attackDescriptionSet[0];
+    for index in range(0,attackSum):
+        print uriArray[index]
+    for index in range(0, attackSum):
+        print attackDescriptionSet[index+1]
 
     #This randomUri is same with URI which user input in option except parameter
     randomUri = uriArray[0]

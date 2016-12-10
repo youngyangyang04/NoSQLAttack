@@ -10,10 +10,10 @@ def scanMongoDBIP():
     try:
         results = api.search('mongoDB')
 
-        print 'Results found:%s' % results['total']
+#        print 'Results found:%s' % results['total']
         for index in range(1,10):
             print str(index)+'_Attacked IP : %s' % results['matches'][index]['ip_str']
-#       select = raw_input("Get more IP (y/n)?")
+#        select = raw_input("Get more IP (y/n)?")
         select = raw_input("Select IP to attack:")
         GlobalVar.set_victim(results['matches'][int(select)]['ip_str'])
         GlobalVar.set_optionSet(0, True)
@@ -23,8 +23,8 @@ def scanMongoDBIP():
         if start == 'y':
             netAttacks(GlobalVar.get_victim(), GlobalVar.get_dbPort(), GlobalVar.get_myIP(), GlobalVar.get_myPort())
 
- #       for result in results['matches']:
- #           print 'Attacked IP: %s' % result['ip_str']
+#        for result in results['matches']:
+#            print 'Attacked IP: %s' % result['ip_str']
             #print result['data']
             #print 'hostnames:' % result['hostnames'];
             #print ' '
