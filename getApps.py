@@ -62,7 +62,7 @@ def getApps():#define the Attack method
     print "Attack queries are listed:"
     for index in range(0,attackSum):
         print attackDescriptionSet[index + 1]
-        print uriArray[index]
+#        print uriArray[index]
 
 
     #This randomUri is same with URI which user input in option except parameter
@@ -87,6 +87,7 @@ def getApps():#define the Attack method
     print "\n"
     print "Start injection:"
     for index in range(0,attackSum):
+        print "injecting: " + uriArray[index]
 #        if GlobalVar.get_verb() == "ON":
 #            print "Checking random injected parameter HTTP response size using " + uriArray[index] + "...\n"
 #        else:

@@ -4,7 +4,7 @@ yes_tag = ['y','Y']
 no_tag = ['n','N']
 def buildAttackUri(origUri, randValue):
     attackSum = 19
-    attackEffectiveSum = 10
+    attackEffectiveSum = 11
     attackEffectiveSum_for_usernameAndPassword = 3
     attackSet=["","","","","","","","","","","","","","","","","","",""]
     attackSet[0] = "=" + randValue + "&"#normal uri which be used to test the length of response
@@ -73,7 +73,7 @@ def buildAttackUri(origUri, randValue):
                 for index in range(0,attackEffectiveSum):
                     uriArray[index] += paramNames[index_paramName] + attackSet[index]
             else:
-                for index in range(0,attackSum):
+                for index in range(0,attackEffectiveSum):
                     uriArray[index] += paramNames[index_paramName] + "=" + paramValue[index] + "&"
         index_paramName+=1
         for index in range(0,attackSum):
@@ -87,8 +87,8 @@ def buildAttackUri(origUri, randValue):
         attackDescriptionSet[6] = "Testing Mongo this not equals string escape attack for all records...\n" + "Injecting " + uriArray[6]
         attackDescriptionSet[7] = "Testing Mongo this not equals integer escape attack for all records...\n" + "Injecting " + uriArray[7]
         attackDescriptionSet[8] = "Testing PHP/ExpressJS > undefined attack for all records...\n" + "Injecting " + uriArray[8]
-        attackDescriptionSet[9] = "Testing PHP/ExpressJS > undefined attack for all records...\n" + "Injecting " + uriArray[9]
-        attackDescriptionSet[10] = "Testing PHP/ExpressJS > undefined attack for all records...\n" + "Injecting " + uriArray[10]
+        attackDescriptionSet[9] = "Testing Javascript injection\n" + "Injecting " + uriArray[9]
+        attackDescriptionSet[10] = "Testing Javascript injection\n" + "Injecting " + uriArray[10]
         buildAttackSet = [[],[]]
         buildAttackSet[0] = uriArray
         buildAttackSet[1] = attackDescriptionSet;
@@ -115,9 +115,9 @@ def buildAttackUri(origUri, randValue):
 #        for index in range(0, attackSum):
 #            uriArray[index] = uriArray[index][:-1] # delete the last "&" of URI
         attackDescriptionSet[0] = attackEffectiveSum_for_usernameAndPassword
-        attackDescriptionSet[1] = "Testing Mongo PHP array injection for login...\n"
-        attackDescriptionSet[2] = "Testing Mongo shell injection for login...\n"
-        attackDescriptionSet[3] = "Testing Mongo shell injection for register...\n"
+        attackDescriptionSet[1] = "Testing Mongo PHP array injection for login...\n" + "Injecting " + uriArray[0]
+        attackDescriptionSet[2] = "Testing Mongo shell injection for login...\n"+ "Injecting " + uriArray[1]
+        attackDescriptionSet[3] = "Testing Mongo shell injection for register...\n"+ "Injecting " + uriArray[2]
         buildAttackSet = [[], []]
         buildAttackSet[0] = uriArray
         buildAttackSet[1] = attackDescriptionSet;
