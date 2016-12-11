@@ -59,37 +59,38 @@ def getApps():#define the Attack method
     uriArray = buildAttackSet[0]
     attackDescriptionSet = buildAttackSet[1]
     attackSum = attackDescriptionSet[0];
+    print "Attack queries are listed:"
     for index in range(0,attackSum):
+        print attackDescriptionSet[index + 1]
         print uriArray[index]
-    for index in range(0, attackSum):
-        print attackDescriptionSet[index+1]
+
 
     #This randomUri is same with URI which user input in option except parameter
-    randomUri = uriArray[0]
 
-    print "URI :" + randomUri
-    req = urllib2.Request(randomUri, None, requestHeaders)
-    if GlobalVar.get_verb() == "ON":
-        print "Checking random injected parameter HTTP response size using " + randomUri + "...\n"
-    else:
-        print "Sending random parameter value..."
-    randLength = int(len(urllib2.urlopen(req).read()))
-    print "Got response length of " + str(randLength) + "."
-    differenceLength = abs(normLength - randLength)
+#    randomUri = uriArray[0]
 
-    if differenceLength == 0:
-        print "No change in response size injecting a random parameter..\n"
-    else:
-        print "Random value variance: " + str(differenceLength) + "\n"
+#    print "URI :" + randomUri
+#    req = urllib2.Request(randomUri, None, requestHeaders)
 
-#    attackEffectiveSum = attackDescriptionSet[0]
+#    randLength = int(len(urllib2.urlopen(req).read()))
+#    print "Got response length of " + str(randLength) + "."
+#    differenceLength = abs(normLength - randLength)
 
+#    if differenceLength == 0:
+#        print "No change in response size injecting a random parameter..\n"
+#    else:
+#        print "Random value variance: " + str(differenceLength) + "\n"
 
-    print "req:" + urllib2.urlopen(req).read()
+#    print "req:" + urllib2.urlopen(req).read()
 
 #    print "requestHeaders" + requestHeaders
-
+    print "\n"
+    print "Start injection:"
     for index in range(0,attackSum):
+#        if GlobalVar.get_verb() == "ON":
+#            print "Checking random injected parameter HTTP response size using " + uriArray[index] + "...\n"
+#        else:
+#            print "Sending random parameter value..."
         if GlobalVar.get_verb() == "ON":
             print attackDescriptionSet[index]
         req = urllib2.Request(uriArray[index], None, requestHeaders)

