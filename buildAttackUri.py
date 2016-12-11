@@ -56,7 +56,7 @@ def buildAttackUri(origUri, randValue):
     except:
         raw_input("Something went wrong.  Press enter to return to the main menu...")
         return
-    if optionParameter in yes_tag:
+    if optionParameter in no_tag:
         try:
             injIndex = raw_input("Which parameter should we inject? ")
             injOpt = str(paramNames[int(injIndex) - 1])
