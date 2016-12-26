@@ -146,17 +146,16 @@ def enumDbs (mongoConn):
     except:
         print "Error:  Couldn't list databases.  The provided credentials may not have rights."
 
-    print "List of collections:"
+    print "List of databases with collections:"
 
     try:
         for dbItem in mongoConn.database_names():
-            db = mongoConn.dbItem
-            print dbItem + ":"
-#            print db.users
-#            print str(db.collection_names(True))
-#            for index in db.collection_names():
-#                print db[index]
-            print "\n".join(db.collection_names())
+            db = mongoConn[dbItem]
+            print "DB name : " + dbItem
+            collection = db.collection_names(include_system_collections=False)
+            print dbItem + " collections:"
+            for collect in collection:
+                print collect
             print "\n"
 
             if 'system.users' in db.collection_names():
