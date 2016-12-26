@@ -37,6 +37,7 @@ def option():
         GlobalVar.set_httpMethod("GET")
     if GlobalVar.get_optionSet(4) == False:
         GlobalVar.set_myIP("127.0.0.1")
+        GlobalVar.set_optionSet(4, True)
     if GlobalVar.get_optionSet(5) == False:
         GlobalVar.set_myPort("Not Set")
     if GlobalVar.get_optionSet(6) == False:
