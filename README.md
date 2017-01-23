@@ -12,7 +12,7 @@ Some attack tests are based on and extensions of follow papers
 
 There are two systems for testing NoSQL injection in this  project-[NoSQLInjectionAttackDemo](https://github.com/youngyangyang04/NoSQLInjectionAttackDemo).
 #Background
-Injection attacks, for example php array injection, js injection and mongo shell injection, endanger  mongoDB.
+NoSQL injection attacks, for example php array injection, javascript injection and mongo shell injection, endanger  mongoDB.
 There are thousands of mongoDB are exposed on the internet, and hacker can download data from exposed mongoDB.
 
 #Requirements
