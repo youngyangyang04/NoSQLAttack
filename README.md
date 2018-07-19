@@ -1,6 +1,6 @@
-#[中文说明](https://github.com/youngyangyang04/NoSQLAttack/blob/master/docs/README-zh.md)
-#NoSQLAttack
-#Introduction
+# [中文说明](https://github.com/youngyangyang04/NoSQLAttack/blob/master/docs/README-zh.md)
+# NoSQLAttack
+# Introduction
 NoSQLAttack is an open source Python tool to automate expose MongoDB server IP on the internet and disclose the database data by MongoDB default configuration weaknesses and injection attacks. Presently, this project focuses on MongoDB.
 
 It is based on [NoSQLMap](http://www.nosqlmap.net/index.html), tcstool's popular NoSQL injection tool and [shodan](https://www.shodan.io/), first search engine for Internet-connected devices. 
@@ -15,7 +15,7 @@ There are two systems for testing NoSQL injection in this  project-[NoSQLInjecti
 NoSQL injection attacks, for example php array injection, javascript injection and mongo shell injection, endanger  mongoDB.
 There are thousands of mongoDB are exposed on the internet, and hacker can download data from exposed mongoDB.
 
-#Requirements
+# Requirements
 On a Debian or Red Hat based system, NoSQLAttack's dependencies already be writen in setup.py.
 This project is built on Pycharm COMMUNITY 2016.1 with python 2.7.10. 
 
@@ -29,17 +29,17 @@ Varies based on features used:
 * MongoDB
 
 
-#Building
+# Building
 On Linux, it goes something like this:
 ```bash
 cd NoSQLAttack
 python setup.py install
 ```
-#Tips
+# Tips
 * If after entering "python setup.py install", terminal show error information "No module named setuptools", just install setuptools. On Ubuntu, "sudo apt-get install python-setuptools", this command is useful
 * Install [MongoDB](https://docs.mongodb.com/manual/administration/install-on-linux/) for MongoDB default configuration attack.
 
-#Usage
+# Usage
 After building, you can run NoSQLAttack like this:
 ```bash
 NoSQLAttack
