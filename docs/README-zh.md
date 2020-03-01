@@ -3,9 +3,7 @@
 # 介绍
 NoSQLAttack 是一个用python编写的开源的攻击工具，用来暴露网络中默认配置mongoDB的IP并且下载目标mongoDB的数据，同时还可以针对以mongoDB为后台存储的应用进行注入攻击，使用这个工具就可以发现有成千上万的mongoDB裸奔在互联网上，并且数据可以随意下载。
 
-这个攻击工具是基于tcstool的[NoSQLMap](http://www.nosqlmap.net/index.html)和搜索引擎[shodan](https://www.shodan.io/)
-
-一些攻击的数据是来自于以下论文给予的启发
+攻击的数据是来自于以下论文给予的启发
 * [Diglossia: Detecting Code Injection Attacks with Precision and Efficiency](http://www.cs.cornell.edu/~shmat/shmat_ccs13.pdf)
 * [No SQL, No Injection?](https://www.research.ibm.com/haifa/Workshops/security2015/present/Aviv_NoSQL-NoInjection.pdf)
 * [Several thousand MongoDBs without access control on the Internet](https://cispa.saarland/wp-content/uploads/2015/02/MongoDB_documentation.pdf).
