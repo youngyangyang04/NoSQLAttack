@@ -4,7 +4,8 @@ import socket;
 import globalVar as GlobalVar
 from mongo import netAttacks
 def scanMongoDBIP():
-    SHODAN_API_KEY = "9kwHl4vdqoXjeKl7iXOHMvXGT3ny85Ig";
+    # Need to fill your SHODAN_API_KEY
+    SHODAN_API_KEY = "SHODAN_API_KEY"; 
     api = shodan.Shodan(SHODAN_API_KEY);
     print 'Start Scanning.....'
     try:
